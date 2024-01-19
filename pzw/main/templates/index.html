@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zadatak za završni ispit: 'Portal za dijeljenje i ocjenjivanje književnih djela'.">
+    <meta name="author" content="Filip Kačić">
+    <meta name="keywords" content="html, css, django">
+    <title>Portal za dijeljenje i ocjenjivanje književnih djela</title>
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+</head>
+<body>
+    <div id="sidebar">
+        {% block sidebar %}
+        <ul>
+            <li><a href="/">Početna stranica</a></li>
+            <li><a href="/books">Knjige</a></li>
+            <li><a href="/authors">Autori</a></li>
+            <li><a href="/genres">Žanrovi</a></li>
+        </ul>
+        {% endblock %}
+    </div>
+    <div class="content">
+        {% block content %}
+        {% endblock %}
+    </div>
+</body>
+</html> 

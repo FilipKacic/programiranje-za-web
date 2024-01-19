@@ -1,0 +1,19 @@
+{% extends "index.html" %}
+{% block content %}
+<h1>Lista svih knjiga:</h1>
+    <ul>
+        {% for book in books %}
+            <li>
+                Title: {{ book.title }}<br>
+                Author: {{ book.author.name }} {{ book.author.surname }}<br>
+                Genres:
+                <ul>
+                    {% for genre in book.genres.all %}
+                        <li>{{ genre.name }}</li>
+                    {% endfor %}
+                </ul>
+                Description: {{ book.description }}<br>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

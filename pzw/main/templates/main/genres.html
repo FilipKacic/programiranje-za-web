@@ -1,0 +1,12 @@
+{% extends "index.html" %}
+{% block content %}
+    <h1>Lista svih žanrova:</h1>
+    <ul>
+        {% for genre in genres %}
+            <li>
+                Name: {{ genre.name }}<br>
+                Description: {{ genre.description }}<br>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

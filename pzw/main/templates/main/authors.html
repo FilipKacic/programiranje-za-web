@@ -1,0 +1,12 @@
+{% extends "index.html" %}
+{% block content %}
+<h1>Lista svih autora:</h1>
+    <ul>
+        {% for author in authors %}
+            <li>
+                Name: {{ author.name }}<br>
+                Surname: {{ author.surname }}<br>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
