@@ -1,12 +1,17 @@
 {% extends "index.html" %}
 {% block content %}
-<h1>Lista svih autora:</h1>
-    <ul>
+    <h1>Lista svih autora:</h1>
+        <ul>
         {% for author in authors %}
             <li>
-                Name: {{ author.name }}<br>
-                Surname: {{ author.surname }}<br>
-            </li>
-        {% endfor %}
+            Name: {{ author.name }}<br>
+            Surname: {{ author.surname }}<br>
+            {% with authorimage=author.authorimage %}
+                {% if authorimage %}
+                    Image: <img src="{{ authorimage.image.url }}" alt="{{ author.name }} {{ author.surname }}'s Image"><br>
+            {% endif %}
+        {% endwith %}
+        </li>
+    {% endfor %}
     </ul>
 {% endblock %}

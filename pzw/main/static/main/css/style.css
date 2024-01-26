@@ -1,7 +1,73 @@
 :root {
     --primary-color: white;
+    --secondary-color: black;
+    --tertiary-color: midnightblue;
+    --small: 0.1em;
+    --medium: 1em;
+    --large: 1.33em;
+    --extraLarge: 1.66em;
 }
 
 body {
     background-color: var(--primary-color);
+    color: var(--secondary-color);
+    font-size: var(--medium);
 }
+
+h1 {
+    font-size: large;
+}
+
+p {
+    font-size: medium;
+}
+
+#user {
+    text-align: right;
+}
+
+#title {
+    text-align: center;
+    font-size: var(--extraLarge);
+    text-transform: uppercase;
+    text-shadow: 0 var(--small) var(--small) var(--secondary-color);
+}
+
+#sidebar {
+    background-color: var(--tertiary-color);
+    color: var(--primary-color);
+    font-size: var(--large);
+    padding: var(--extraLarge);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+#sidebar li {
+    margin-right: var(--extraLarge);
+}
+
+#sidebar a {
+    text-decoration: none;
+    color: var(--primary-color);
+    padding: var(--large);
+    transition: background-color 0.5s ease;
+}
+
+#sidebar a:hover {
+    background-color: var(--primary-color);
+    color: var(--tertiary-color);
+}
+
+#sidebar a.active {
+    background-color: var(--primary-color);
+    color: var(--tertiary-color);
+}
+

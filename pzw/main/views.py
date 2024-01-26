@@ -26,4 +26,3 @@ def all_books(request):
     context = {'books': all_books}
 
     return render(request, 'main/books.html', context=context)
-

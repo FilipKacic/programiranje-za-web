@@ -13,6 +13,16 @@
     <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
 </head>
 <body>
+    <div id="user">
+        {% if user.is_authenticated %}
+            <p>Vaše ime: {{ user.username }}</p>
+        {% else %}
+            <p>Niste prijavljeni.</p>
+        {% endif %}
+    </div>
+    <div id="title">
+        <p>Portal za dijeljenje i ocjenjivanje književnih djela</p>
+    </div>
     <div id="sidebar">
         {% block sidebar %}
         <ul>
