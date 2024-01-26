@@ -3,7 +3,6 @@ from .views import *
 
 app_name = 'main'  # here for namespacing of urls.
 
-
 urlpatterns = [
     path('', homepage_view, name='homepage'),
     path('authors', all_authors, name='authors'),
