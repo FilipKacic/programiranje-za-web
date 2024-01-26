@@ -8,6 +8,9 @@ class Author(models.Model):
     def __str__(self):
         return f"{self.name} by {self.surname}"
 
+class AuthorImage(models.Model):
+    author = models.OneToOneField(Author, on_delete=models.CASCADE)
+    image = models.ImageField(upload_to='main/static/main/images/')
     
 class Genre(models.Model):
     name = models.CharField(max_length=32)

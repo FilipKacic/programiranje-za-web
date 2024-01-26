@@ -6,6 +6,7 @@
             <li>
                 Name: {{ author.name }}<br>
                 Surname: {{ author.surname }}<br>
+                Image: <img src="{{ author.image.image.url }}" alt="{{ author.name }} {{ author.surname }}'s Image"><br>
             </li>
         {% endfor %}
     </ul>
