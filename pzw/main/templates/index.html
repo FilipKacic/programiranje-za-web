@@ -15,11 +15,18 @@
 <body>
     <div id="user">
         {% if user.is_authenticated %}
-            <p>Vaše ime: {{ user.username }}</p>
+            <ul>
+                <li><p>Korisnik: {{ user.username }}</p</li>
+                <li><a href="{% url 'logout' %}?next={% url 'main:homepage' %}">Odjava</a></li>
+            </ul>
         {% else %}
-            <p>Niste prijavljeni.</p>
+            <ul>
+                <li><a href="{% url 'login' %}">Prijava</a></li>
+                <li><a href="{% url 'register' %}">Registracija</a></li>
+            </ul>
         {% endif %}
     </div>
+
     <div id="title">
         <p>Portal za dijeljenje i ocjenjivanje književnih djela</p>
     </div>
@@ -36,6 +43,6 @@
     <div class="content">
         {% block content %}
         {% endblock %}
-    </div>
+    </div>  
 </body>
 </html> 

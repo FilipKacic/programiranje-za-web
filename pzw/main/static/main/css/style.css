@@ -2,10 +2,12 @@
     --primary-color: white;
     --secondary-color: black;
     --tertiary-color: midnightblue;
+    --quaternary-color: palegoldenrod;
+    --quinary-color: goldenrod;
     --small: 0.1em;
     --medium: 1em;
-    --large: 1.33em;
-    --extraLarge: 1.66em;
+    --large: 1.2em;
+    --extraLarge: 1.4em;
 }
 
 body {
@@ -15,17 +17,33 @@ body {
 }
 
 h1 {
-    font-size: large;
+    font-size: var(--extraLarge);
 }
 
 p {
-    font-size: medium;
+    font-size: var(--large);
 }
 
-#user {
-    text-align: right;
+/* Buttons */
+
+.button {
+    display: inline-block;
+    padding: var(--medium) var(--large);
+    text-align: center;
+    text-decoration: none;
+    font-size: var(--medium);
+    cursor: pointer;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
+.button:hover {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+}
+
+/* Title */
 #title {
     text-align: center;
     font-size: var(--extraLarge);
@@ -33,11 +51,50 @@ p {
     text-shadow: 0 var(--small) var(--small) var(--secondary-color);
 }
 
+/* User */
+
+#user {
+    font-size: var(--medium);
+    padding: var(--large);
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+#user ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+}
+
+#user li {
+    margin-right: var(--extraLarge);
+}
+
+#user a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    padding: var(--medium);
+    transition: background-color 0.3s ease;
+}
+
+#user a:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+#user p {
+    font-style: italic;
+}
+
+
+/* Sidebar */
 #sidebar {
     background-color: var(--tertiary-color);
     color: var(--primary-color);
     font-size: var(--large);
-    padding: var(--extraLarge);
+    padding: var(--large);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -57,7 +114,7 @@ p {
 #sidebar a {
     text-decoration: none;
     color: var(--primary-color);
-    padding: var(--large);
+    padding: var(--medium);
     transition: background-color 0.5s ease;
 }
 
@@ -66,8 +123,24 @@ p {
     color: var(--tertiary-color);
 }
 
-#sidebar a.active {
-    background-color: var(--primary-color);
-    color: var(--tertiary-color);
+/* Rating Blocks */
+
+#block {
+    display: inline-block;
+    padding: var(--medium);
+    margin-bottom: var(--medium);
+    text-align: center;
+    text-decoration: solid;
+    background-color: var(--quaternary-color);
+    color: var(--secondary-color);
 }
+
+#rating {
+    display: inline-block;
+    padding: var(--medium) var(--large);
+    font-size: var(--extraLarge);
+    text-shadow: 0 var(--small) var(--small) var(--quinary-color);
+    color: var(--secondary-color);
+}
+
 

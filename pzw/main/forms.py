@@ -2,6 +2,8 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import authenticate, login
 from django.shortcuts import redirect, render
+from django import forms
+from .models import *
 
 def register(request):
     if request.method == 'POST':
@@ -22,3 +24,8 @@ def register(request):
     context = {'form': form}
 
     return render(request, 'registration/register.html', context)
+
+class RatingForm(forms.ModelForm):
+    class Meta:
+        model = Rating
+        fields = ['user', 'book', 'rating']
