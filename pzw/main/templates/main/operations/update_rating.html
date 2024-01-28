@@ -1,0 +1,10 @@
+{% extends "index.html" %}
+{% block content %}
+    <h1>Promijeni ocijenu</h1>
+    <li><a href="{% url 'main:list' %}" class="button">Natrag na ocijene</a></li>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Promijeni ocijenu</button>
+    </form>
+{% endblock %}
