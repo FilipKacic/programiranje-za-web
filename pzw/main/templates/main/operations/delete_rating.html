@@ -1,0 +1,9 @@
+{% extends "index.html" %}
+{% block content %}
+    <h1>Pobriši ocijenu</h1>
+    <p>Jeste li sigurni da želite pobrisati ocijenu za knjigu "{{ rating.book }}"?</p>
+    <form method="post">
+        {% csrf_token %}
+        <input type="submit" value="Confirm Delete">
+    </form>
+{% endblock %}

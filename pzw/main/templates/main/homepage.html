@@ -1,4 +1,8 @@
 {% extends "index.html" %}
 {% block content %}
     <h1>Dobrodošli na početnu stranicu!</h1>
+    <ul>
+        <li><a href="{% url 'main:add' %}">Ocijenu knjigu</a></li>
+        <li><a href="{% url 'main:list' %}">Navedi sve svoje ocijene</a></li>
+    </ul>
 {% endblock %}

@@ -1,11 +1,16 @@
 from django.urls import path
 from .views import *
+from . import views
 
 app_name = 'main'  # here for namespacing of urls.
 
 urlpatterns = [
-    path('', homepage_view, name='homepage'),
+    path('', views.homepage_view, name='homepage'),
     path('authors', all_authors, name='authors'),
     path('genres', all_genres, name='genres'),
     path('books', all_books, name='books'),
+    path('add/', views.RatingCreateView.as_view(), name='add'),
+    path('list/', views.RatingListView.as_view(), name='list'),
+    path('update/', views.RatingUpdateView.as_view(), name='update'),
+    path('delete/', views.RatingDeleteView.as_view(), name='delete'),
 ]

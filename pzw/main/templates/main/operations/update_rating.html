@@ -1,0 +1,9 @@
+{% extends "index.html" %}
+{% block content %}
+    <h1>Promijeni ocijenu</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Update Ice Cream</button>
+    </form>
+{% endblock %}

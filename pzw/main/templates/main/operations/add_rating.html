@@ -1,0 +1,12 @@
+{% extends "index.html" %}
+{% block content %}
+    <h1>Dodaj ocijenu</h1>
+    <ul>
+        <li><a href="{% url 'main:homepage' %}">Natrag na početnu stranicu</a></li><br>
+    </ul>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Add Rating</button>
+    </form>
+{% endblock %}
