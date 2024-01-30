@@ -1,31 +1,53 @@
-{% if form.errors %}
-    <p>Greška.</p>
-{% endif %}
+{% load static %}
 
-{% if next %}
-    {% if user.is_authenticated %}
-        <p>Nemate pristup ovoj stranici.</p>
-    {% else %}
-        <p>Logirajte se kako biste vidjeli ovu stranicu.</p>
-    {% endif %}
-{% endif %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zadatak za završni ispit: 'Portal za dijeljenje i ocjenjivanje književnih djela'.">
+    <meta name="author" content="Filip Kačić">
+    <meta name="keywords" content="html, css, django">
+    <title>PDOKD</title>
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <link rel="icon" type="image/svg+xml" href="{% static 'main/favicon/stack_of_books.svg' %}">
+</head>
+<body>
+    <div class="button">
+        <ul>
+            <li><a href="{% url 'main:homepage' %}">Natrag na početnu stranicu</a></li>
+        </ul>
+    </div>
 
-<form method="post" action="{% url 'login' %}">
-    {% csrf_token %}
-    <table>
-        <tr>
-            <td>{{ form.username.label_tag }}</td>
-            <td>{{ form.username }}</td>
-        </tr>
-        <tr>
-            <td>{{ form.password.label_tag }}</td>
-            <td>{{ form.password }}</td>
-        </tr>
-    </table>
-    <input type="submit" value="login" />
-    <input type="hidden" name="next" value="{{ next }}" />
-</form>
+    <div class="container">
+        {% if form.errors %}
+            <p>Greška.</p>
+        {% endif %}
 
-<ul>
-    <li><a href="{% url 'main:homepage' %}">Natrag na početnu stranicu</a></li><br>
-</ul>
+        {% if next %}
+            {% if user.is_authenticated %}
+                <p>Nemate pristup ovoj stranici.</p>
+            {% else %}
+                <p>Logirajte se kako biste vidjeli ovu stranicu.</p>
+            {% endif %}
+        {% endif %}
+
+        <form method="post" action="{% url 'login' %}">
+            {% csrf_token %}
+            <table>
+                <tr>
+                    <td>{{ form.username.label_tag }}</td>
+                    <td>{{ form.username }}</td>
+                </tr>
+                <tr>
+                    <td>{{ form.password.label_tag }}</td>
+                    <td>{{ form.password }}</td>
+                </tr>
+            </table>
+            <input type="submit" value="Login" />
+            <input type="hidden" name="next" value="{{ next }}" />
+        </form>
+    </div>
+</body>
+</html> 

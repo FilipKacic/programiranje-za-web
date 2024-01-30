@@ -1,7 +1,11 @@
 {% extends "index.html" %}
 {% block content %}
-    <h1>Promijeni ocijenu</h1>
-    <li><a href="{% url 'main:list' %}" class="button">Natrag na ocijene</a></li>
+    <h2>Promijeni ocijenu</h2>
+    <div class="button">
+        <ul>
+            <li><a href="{% url 'main:list' %}" class="button">Natrag na ocijene</a></li>
+        </ul>
+    </div>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}

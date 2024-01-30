@@ -64,3 +64,14 @@ class RatingDeleteView(DeleteView):
 def logout_view(request):
     logout(request)
     return redirect('main:homepage')
+
+def book_search(request):
+    form = BookSearchForm(request.GET)
+    books = Book.objects.all()
+
+    if form.is_valid():
+        search_query = form.cleaned_data.get('search_query')
+        if search_query:
+            books = books.filter(title__icontains=search_query)  # Adjust as needed for your model fields
+
+    return render(request, 'main/operations/book_search.html', {'form': form, 'books': books})

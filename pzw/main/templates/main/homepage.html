@@ -1,6 +1,12 @@
 {% extends "index.html" %}
 {% block content %}
-    <h1>Dobrodošli na početnu stranicu!</h1>
-    <a href="{% url 'main:add' %}" class="button">Ocijenu knjigu</a>
-    <a href="{% url 'main:list' %}" class="button">Navedi sve svoje ocijene</a>
+    <h2>Dobrodošli na početnu stranicu!</h2>
+    <div class="button">
+        <ul>
+            <div class="container" style="margin: 0 var(--small-size) 0; padding: 0;">
+                <li><a href="{% url 'main:add' %}">Ocijenu knjigu</a></li>
+                <li><a href="{% url 'main:list' %}">Navedi sve svoje ocijene</a></li>
+            </div>
+        </ul>
+    </div>
 {% endblock %}

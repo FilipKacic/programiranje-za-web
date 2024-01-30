@@ -1,15 +1,37 @@
-<form method="post" action="{% url 'register' %}">
-    {% csrf_token %}
+{% load static %}
 
-    {% if form.errors %}
-        <p>Greška.</p>
-    {% endif %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zadatak za završni ispit: 'Portal za dijeljenje i ocjenjivanje književnih djela'.">
+    <meta name="author" content="Filip Kačić">
+    <meta name="keywords" content="html, css, django">
+    <title>PDOKD</title>
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <link rel="icon" type="image/svg+xml" href="{% static 'main/favicon/stack_of_books.svg' %}">
+</head>
+<body>
+    <div class="button">
+        <ul>
+            <li><a href="{% url 'main:homepage' %}">Natrag na početnu stranicu</a></li>
+        </ul>
+    </div>
 
-    {{ form }}
-
-    <input type="submit" value="Register" />
-</form>
-
-<ul>
-    <li><a href="{% url 'main:homepage' %}">Natrag na početnu stranicu</a></li><br>
-</ul>
+    <div class="container">
+        <form method="post" action="{% url 'register' %}">
+            {% csrf_token %}
+        
+            {% if form.errors %}
+                <p>Greška.</p>
+            {% endif %}
+        
+            {{ form }}
+        
+            <input type="submit" value="Register" />
+        </form>
+    </div>
+</body>
+</html> 
