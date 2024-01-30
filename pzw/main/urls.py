@@ -14,4 +14,5 @@ urlpatterns = [
     path('update/<int:pk>/', RatingUpdateView.as_view(), name='update'),
     path('delete/<int:pk>/', RatingDeleteView.as_view(), name='delete'),
     path('logout/', views.logout_view, name='logout'),
+    path('book_search/', book_search, name='book_search'),
 ]
