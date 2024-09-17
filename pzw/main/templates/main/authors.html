@@ -1,12 +1,12 @@
 {% extends "index.html" %}
 {% block content %}
-    <h1>Lista svih autora:</h1>
+    <h2>Lista svih autora:</h2>
     <ul>
         {% for author in authors %}
             <li>
-                Name: {{ author.name }}<br>
-                Surname: {{ author.surname }}<br>
-                <!-- Image: <img src="{{ image.url }}" alt="{{ author.name }} {{ author.surname }}'s Image"><br> -->
+                Ime: {{ author.name }}<br>
+                Prezime: {{ author.surname }}<br>
+                <!-- Slika: <img src="{{ image.url }}" alt="{{ author.name }} {{ author.surname }}'s Image"><br> -->
             </li>
         {% endfor %}
     </ul>

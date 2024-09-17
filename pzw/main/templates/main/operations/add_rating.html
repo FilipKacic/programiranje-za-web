@@ -1,10 +1,16 @@
 {% extends "index.html" %}
 {% block content %}
-    <h1>Dodaj ocijenu</h1>
-    <a href="{% url 'main:homepage' %}" class="button">Natrag na početnu stranicu</a>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Add Rating</button>
-    </form>
+    <h2>Dodaj ocijenu</h2>
+    <div class="button">
+        <ul>
+            <li><a href="{% url 'main:homepage' %}" class="button">Natrag na početnu stranicu</a></li>
+        </ul>
+    </div>
+    <div class="container" style="background-color: var(--quinary-color);">
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Ocijeni</button>
+        </form>
+    </div>
 {% endblock %}

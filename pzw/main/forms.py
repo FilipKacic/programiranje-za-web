@@ -29,3 +29,6 @@ class RatingForm(forms.ModelForm):
     class Meta:
         model = Rating
         fields = ['user', 'book', 'rating']
+
+class BookSearchForm(forms.Form):
+    search_query = forms.CharField(max_length=255, required=False)

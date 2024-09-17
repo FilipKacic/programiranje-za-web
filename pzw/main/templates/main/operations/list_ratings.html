@@ -1,18 +1,24 @@
 {% extends "index.html" %}
 {% block content %}
-    <h1>Ocijene</h1>
-    <a href="{% url 'main:homepage' %}" class="button">Natrag na početnu stranicu</a>
-    <br><br>
+    <h2>Ocijene</h2>
+    <div class="button">
+        <ul>
+            <li><a href="{% url 'main:homepage' %}" class="button">Natrag na početnu stranicu</a></li>
+        </ul>
+    </div>
     {% for rating in ratings %}
-    <div id="block">
-        <div id="rating">{{ rating.rating }}</div>
-        <a href="{% url 'main:update' rating.pk %}" class="button">Promijeni</a>
-        <a href="{% url 'main:delete' rating.pk %}" class="button">Pobriši</a>
-        <p>Korisnik: {{ rating.user }}</p>
-        <p>Knjiga: {{ rating.book }}</p>
-     </div>
+        <div id="ratings">
+            <div class="center">
+                <h3>{{ rating.rating }}</h3>
+            </div>
+            <p>Knjiga: {{ rating.book }}</p>
+            <p>Korisnik: {{ rating.user }}</p>
+            <div class="center">
+                <a href="{% url 'main:update' rating.pk %}" class="little_button" style="text-align: center;">Promijeni</a>
+                <a href="{% url 'main:delete' rating.pk %}" class="little_button" style="text-align: center;">Pobriši</a>
+            </div>
+        </div>
     {% empty %}
-        <li>Nema ocijena...</li>
+        <p>Nema ocijena...</p>
     {% endfor %}
-    </ul>
 {% endblock %}

@@ -1,5 +1,4 @@
 {% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,41 +7,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Zadatak za završni ispit: 'Portal za dijeljenje i ocjenjivanje književnih djela'.">
     <meta name="author" content="Filip Kačić">
-    <meta name="keywords" content="html, css, django">
-    <title>Portal za dijeljenje i ocjenjivanje književnih djela</title>
+    <meta name="keywords" content="html, css, django, javascript">
+    <title>PZD&OKD</title>
     <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+    <link rel="icon" type="image/svg+xml" href="{% static 'main/favicon/stack_of_books.svg' %}">
 </head>
-<body>
-    <div id="user">
+<body class="theme1">
+    <div id="user" class="button">
+            
         {% if user.is_authenticated %}
+            <p>Korisnik: {{ user.username }}</p>
             <ul>
-                <li><p>Korisnik: {{ user.username }}</p</li>
                 <li><a href="{% url 'logout' %}?next={% url 'main:homepage' %}">Odjava</a></li>
+                <li><button id="colorSwitchButton">Zamjeni boje</button></li>
             </ul>
         {% else %}
             <ul>
-                <li><a href="{% url 'login' %}">Prijava</a></li>
-                <li><a href="{% url 'register' %}">Registracija</a></li>
+                <div class="container" style="margin: var(--small-size) 0 0; padding: 0;">
+                    <li><a href="{% url 'login' %}">Prijava</a></li>
+                    <li><a href="{% url 'register' %}">Registracija</a></li>
+                </div>
+                <li><button id="colorSwitchButton">Zamjeni boje</button></li>
             </ul>
         {% endif %}
     </div>
-
-    <div id="title">
-        <p>Portal za dijeljenje i ocjenjivanje književnih djela</p>
+    <div id="title" class="center">
+        <h1>Portal za dijeljenje & ocjenjivanje književnih djela</h1>
     </div>
-    <div id="sidebar">
-        {% block sidebar %}
+    <div id="navbar">
         <ul>
             <li><a href="/">Početna stranica</a></li>
             <li><a href="/books">Knjige</a></li>
             <li><a href="/authors">Autori</a></li>
             <li><a href="/genres">Žanrovi</a></li>
         </ul>
-        {% endblock %}
     </div>
     <div class="content">
         {% block content %}
         {% endblock %}
-    </div>  
+    </div>
+    <!-- Adds the defer attribute to ensure the script is executed after the DOM is fully loaded -->
+    <script src="{% static 'main/js/switch.js' %}" defer></script>
 </body>
-</html> 
+</html>

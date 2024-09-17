@@ -1,146 +1,184 @@
+/* color & size palette */
 :root {
-    --primary-color: white;
+    --primary-color: black;
+    --secondary-color: whitesmoke;
+    --tertiary-color: silver;
+    --quaternary-color: navy;
+    --quinary-color: gold;
+    --minimum-size: 0.1em;
+    --small-size: 0.5em;
+    --medium-size: 1em;
+    --large-size: 2.5em;
+    --maximum-size: 5em;
+}
+
+/* themes are switched by the js swicth btn */
+.theme1 {
+    --primary-color: black;
+    --secondary-color: whitesmoke;
+    --tertiary-color: silver;
+    --quaternary-color: navy;
+    --quinary-color: gold;
+}
+
+.theme2 {
+    --primary-color: whitesmoke;
     --secondary-color: black;
-    --tertiary-color: midnightblue;
-    --quaternary-color: palegoldenrod;
-    --quinary-color: goldenrod;
-    --small: 0.1em;
-    --medium: 1em;
-    --large: 1.2em;
-    --extraLarge: 1.4em;
+    --tertiary-color: lightgrey;
+    --quaternary-color: lightcyan;
+    --quinary-color: olive;
 }
 
+/* common grounds */
 body {
-    background-color: var(--primary-color);
-    color: var(--secondary-color);
-    font-size: var(--medium);
-}
-
-h1 {
-    font-size: var(--extraLarge);
-}
-
-p {
-    font-size: var(--large);
-}
-
-/* Buttons */
-
-.button {
-    display: inline-block;
-    padding: var(--medium) var(--large);
-    text-align: center;
-    text-decoration: none;
-    font-size: var(--medium);
-    cursor: pointer;
-    background-color: var(--secondary-color);
+    font-family: Arial, sans-serif;
     color: var(--primary-color);
-    transition: background-color 0.3s ease, color 0.3s ease;
+    background-color: var(--secondary-color);
+    padding: 0;
+    margin: 0;
 }
 
-.button:hover {
-    background-color: var(--primary-color);
+h1, h2, h3, h4, h5, h6, p, li {
+    padding: var(--small-size);
+}
+
+a:hover {
+    cursor: pointer;
+}
+
+/* basic buttons transformed */
+button {
+    display: inline-block;
+    padding: var(--small-size) var(--large-size);
+    text-decoration: none;
     color: var(--secondary-color);
+    background-color: var(--primary-color);
+    border: var(--minimum-size) solid var(--tertiary-color);
+    border-radius: var(--small-size);
+    margin: var(--minimum-size);
 }
 
-/* Title */
-#title {
-    text-align: center;
-    font-size: var(--extraLarge);
-    text-transform: uppercase;
-    text-shadow: 0 var(--small) var(--small) var(--secondary-color);
+button:hover {
+    color: var(--primary-color);
+    background: radial-gradient(ellipse, var(--secondary-color), var(--tertiary-color));
 }
 
-/* User */
-
-#user {
-    font-size: var(--medium);
-    padding: var(--large);
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-}
-
-#user ul {
+/* some stylish buttons */
+.button ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    display: flex;
 }
 
-#user li {
-    margin-right: var(--extraLarge);
+.button li {
+    display: inline-block;
+    margin: var(--medium-size);
 }
 
-#user a {
+.button a {
+    display: block;
+    padding: var(--small-size) var(--maximum-size);
+    text-decoration: none;
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+    border: var(--minimum-size) solid var(--tertiary-color);
+    border-radius: var(--small-size);
+}
+
+.button a:hover {
+    background: radial-gradient(ellipse, var(--secondary-color), var(--tertiary-color));
+}
+
+/* recyclables */
+.center {
+    text-align: center;
+}
+
+.container {
+    display: inline-block;
+    margin: var(--small-size) var(--medium-size);
+    padding: var(--large-size) var(--maximum-size);
+    background-color: var(--secondary-color);
+    border: var(--minimum-size) solid var(--tertiary-color);
+    border-radius: var(--small-size);
+}
+
+/* lil btns == buttons */
+.little_button {
+    display: inline-block;
+    padding: var(--small-size) var(--large-size);
     text-decoration: none;
     color: var(--secondary-color);
-    padding: var(--medium);
-    transition: background-color 0.3s ease;
+    background-color: var(--primary-color);
+    border: var(--minimum-size) solid var(--tertiary-color);
+    border-radius: var(--small-size);
+    margin: var(--minimum-size);
 }
 
-#user a:hover {
-    background-color: var(--secondary-color);
+.little_button:hover {
     color: var(--primary-color);
+    background: radial-gradient(ellipse, var(--secondary-color), var(--tertiary-color));
+}
+
+/* User section */
+#user {
+    text-align: right;
 }
 
 #user p {
     font-style: italic;
 }
 
-
-/* Sidebar */
-#sidebar {
-    background-color: var(--tertiary-color);
-    color: var(--primary-color);
-    font-size: var(--large);
-    padding: var(--large);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+/* Title section */
+#title {    
+    text-transform: uppercase;
+    text-shadow: 0 var(--minimum-size) var(--minimum-size) var(--primary-color);
 }
 
-#sidebar ul {
+/* Horizontal navigation bar section */
+#navbar {
+    color: var(--secondary-color);
+    background-color: var(--quaternary-color);
+}
+
+#navbar ul {
     list-style: none;
     padding: 0;
     margin: 0;
     display: flex;
 }
 
-#sidebar li {
-    margin-right: var(--extraLarge);
+#navbar li {
+    text-transform: uppercase;
+    padding: 0;
+    margin: 0;
 }
 
-#sidebar a {
+#navbar a {
+    display: block;
+    padding: var(--medium-size) var(--large-size);
     text-decoration: none;
-    color: var(--primary-color);
-    padding: var(--medium);
-    transition: background-color 0.5s ease;
+    color: var(--secondary-color);
+    transition: background-color 0.3s ease;
 }
 
-#sidebar a:hover {
+#navbar a:hover {
     background-color: var(--primary-color);
-    color: var(--tertiary-color);
-}
-
-/* Rating Blocks */
-
-#block {
-    display: inline-block;
-    padding: var(--medium);
-    margin-bottom: var(--medium);
-    text-align: center;
-    text-decoration: solid;
-    background-color: var(--quaternary-color);
     color: var(--secondary-color);
+    transition: background-color 0.3s ease;
 }
 
-#rating {
-    display: inline-block;
-    padding: var(--medium) var(--large);
-    font-size: var(--extraLarge);
-    text-shadow: 0 var(--small) var(--small) var(--quinary-color);
-    color: var(--secondary-color);
+/* Ratings section */
+#ratings {
+    margin: var(--small-size);
+    padding: var(--small-size);
+    border: var(--minimum-size) solid var(--tertiary-color);
+    border-radius: var(--small-size);
+    background-color: var(--quinary-color);
+    display: block;
+    float: left;
 }
 
-
+#ratings p {
+    margin: var(--minimum-size);
+}
